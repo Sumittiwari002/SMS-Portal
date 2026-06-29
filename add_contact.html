@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="SMS-portal.css">
+</head>
+<body>
+    <div class="navbar-custom">
+    <a href="#">SMS Portal</a>
+    <a href="add_library.html">Add Library</a>
+    <a href="add_group.html">Add Group</a>
+    <a href="#add_message.html">Add Message</a>
+    <a href="#add_contact.html">Add Contact</a>
+    <a href="index.html" id="home">Home Page</a>
+</div>
+
+    <ul>
+        <h1>Add Contact</h1>
+        <select id="groupInfo">
+    <option value="">Select Group</option>
+</select> <br/><br/>
+<div class="mb-4">
+    <input type="text" id="txt1" class="form-control" placeholder="Name">
+</div>
+<div class="mb-4">
+    <input type="text" id="txt2" placeholder="Mobile Number">
+</div>
+<div class="mb-4">
+    <input type="text" id="txt3" placeholder="Email">
+</div>
+<div class="text-center">
+    <button id="btn" class="neon-btn">Add Contact</button>
+</div>
+<p id="message"></p>
+
+    </ul>
+<script src="function.js" type="module"></script>
+    <script type="module">
+
+        import{getValue, lower, empty, setValue,fetchDataOption, setMessage, get, set, stringify, element, parse} from './function.js';
+
+        fetchDataOption(getValue('grpname'), "#groupInfo")
+
+        element('#btn').onclick = function(){
+            let txtValue1 = lower(get('#txt1'));
+            let txtValue2 = lower(get('#txt2'));
+            let txtValue3 = lower(get('#txt3'));
+            let groupInfo = lower(get('#groupInfo'));
+
+            console.log(txtValue1);
+            // console.log(empty[txtValue1]);
+
+            if(empty([txtValue1, txtValue2, txtValue3, groupInfo])){
+                setMessage("#message", "Values Require");
+            }
+            else{
+                let contactInfo = getValue('contactDetails');
+                console.log(contactInfo);
+
+                let infoObj = {
+                    "name": txtValue1,
+                    "mobile": txtValue2,
+                    "email": txtValue3,
+                    "groupName": groupInfo
+                }
+
+                if(contactInfo === null){
+                    let arr = [];
+                    arr.push(infoObj);
+                    let result = stringify(arr);
+                    setValue('contactDetails', result);
+                    setMessage('#message', "Contact Value Added");
+                    set('#txt1','')
+                    set('#txt2','')
+                    set('#txt3','')
+                }
+                else{
+                    groupInfo = parse(contactInfo);
+                    groupInfo.push(infoObj);
+                    let result = stringify(groupInfo);
+                    console.log(result);
+
+                    setValue('contactDetails', result);
+                    setMessage("#message", "Contact Value Updated");
+                    set('#txt1', '')
+                    set('#txt2', '')
+                    set('#txt3', '')
+                    
+                }
+                
+            }
+            
+            
+        }
+        document.getElementById('home').addEventListener('click', function(){
+            window.location.href= 'SMS-portalshow.html';
+        });
+        
+
+    </script>
+    
+    
+</body>
+</html>

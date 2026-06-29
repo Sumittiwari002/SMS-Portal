@@ -1,0 +1,149 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:'Segoe UI',sans-serif;
+    background: linear-gradient(-45deg,
+    #9EF5EA,
+    #c8fff4,
+    #e8fff9,
+    #bdfef6);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    padding:20px;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Navbar */
+
+.navbar-custom{
+    background:rgba(255,255,255,0.25);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:15px;
+    box-shadow:
+    0 0 20px rgba(0,255,200,.3);
+}
+
+.navbar-custom a{
+    text-decoration:none;
+    color:#004d4d;
+    font-weight:bold;
+    margin-right:15px;
+    transition:.4s;
+}
+
+.navbar-custom a:hover{
+    color:#00bfa5;
+    text-shadow:0 0 10px #00ffd5;
+}
+
+/* Glass Card */
+
+.glass-card{
+    background:rgba(255,255,255,.25);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:25px;
+    padding:20px;
+    box-shadow:
+    0 8px 32px rgba(0,255,200,.15);
+    transition:.4s;
+}
+
+.glass-card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+    0 15px 40px rgba(0,255,200,.4);
+}
+
+/* Titles */
+
+.section-title{
+    text-align:center;
+    color:#00695c;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+/* Lists */
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+ul li{
+    background:rgba(255,255,255,.4);
+    margin-bottom:10px;
+    padding:10px;
+    border-radius:12px;
+    transition:.4s;
+}
+
+ul li:hover{
+    transform:translateX(10px);
+    background:#d5fff8;
+    box-shadow:0 0 15px rgba(0,255,200,.5);
+}
+
+/* Form Inputs */
+
+.form-control{
+    border:none;
+    border-radius:15px;
+    background:rgba(255,255,255,.5);
+    padding:12px;
+}
+
+.form-control:focus{
+    box-shadow:0 0 15px #00ffd5;
+    border:none;
+}
+
+/* Button */
+
+.neon-btn{
+    background:linear-gradient(
+    45deg,
+    #00ffd5,
+    #00c9a7);
+    border:none;
+    color:#003333;
+    font-weight:bold;
+    padding:12px 30px;
+    border-radius:50px;
+    transition:.4s;
+}
+
+.neon-btn:hover{
+    transform:scale(1.08);
+    box-shadow:
+    0 0 15px #00ffd5,
+    0 0 30px #00ffd5,
+    0 0 60px #00ffd5;
+}
+
+/* Floating Animation */
+
+.float-card{
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
