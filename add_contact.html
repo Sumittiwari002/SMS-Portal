@@ -9,34 +9,53 @@
 </head>
 <body>
     <div class="navbar-custom">
-    <a href="#">SMS Portal</a>
+    <a href="index.html">SMS Portal</a>
     <a href="add_library.html">Add Library</a>
     <a href="add_group.html">Add Group</a>
     <a href="add_message.html">Add Message</a>
     <a href="add_contact.html">Add Contact</a>
     <a href="index.html" id="home">Home Page</a>
-</div>
+  </div>
 
-    <ul>
-        <h1>Add Contact</h1>
-        <select id="groupInfo">
-    <option value="">Select Group</option>
-</select> <br/><br/>
-<div class="mb-4">
-    <input type="text" id="txt1" class="form-control" placeholder="Name">
-</div>
-<div class="mb-4">
-    <input type="text" id="txt2" placeholder="Mobile Number">
-</div>
-<div class="mb-4">
-    <input type="text" id="txt3" placeholder="Email">
-</div>
-<div class="text-center">
-    <button id="btn" class="neon-btn">Add Contact</button>
-</div>
-<p id="message"></p>
+    <div class="container mt-5">
 
-    </ul>
+    <div class="contact-card">
+
+        <h1 class="text-center mb-4">Add Contact</h1>
+
+        <div class="mb-3">
+            <label class="form-label">Select Group</label>
+            <select id="groupInfo" class="custom-input">
+                <option value="">Select Group</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" id="txt1" class="custom-input" placeholder="Enter Name">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Mobile Number</label>
+            <input type="text" id="txt2" class="custom-input" placeholder="Enter Mobile Number">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="txt3" class="custom-input" placeholder="Enter Email">
+        </div>
+
+        <div class="text-center mt-4">
+            <button id="btn" class="neon-btn">
+                Add Contact
+            </button>
+        </div>
+
+        <p id="message" class="text-center mt-3"></p>
+
+    </div>
+
+</div>
 <script src="function.js" type="module"></script>
     <script type="module">
 
@@ -95,9 +114,6 @@
             
             
         }
-        document.getElementById('home').addEventListener('click', function(){
-            window.location.href= 'SMS-portalshow.html';
-        });
         
 
     </script>
